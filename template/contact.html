@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+
+
+
+
+<div class="blog-text">
+    <div class="blog-athor-date line-height-1">
+        <span class="blog-date"><i class="fa fa-calendar" aria-hidden="true"></i> 27,Jun 2030</span>
+        <span><a class="blog-author" href="blog-grid.html"><i class="fa fa-user" aria-hidden="true"></i> Oaklee Odom</a></span>
+    </div>
+    <h5 class="blog-heading"><a class="blog-heading-link" href="blog-single-left-sidebar.html">5 Real-Life Lessons About Smart Product</a></h5>
+    <p>Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
+    <a href="blog-single-left-sidebar.html" class="btn btn-primary blog-btn"> Read More</a>
+</div>
+</div>
+</div>
+
+
+<div class="contact-area">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form">
+                        <div class="contact-title mb-30">
+                            <h2 class="title">Send A Quest</h2>
+                        </div>
+                        <form  action="{% url 'contactsavr' %}" method="post">
+                          <h2> {{error}}</h2> 
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input name="name" placeholder="Name*" type="text" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <input readonly name="email" placeholder="Email*" value="{{user.email}}" type="email" />
+                                </div>
+                                <div class="col-lg-12">
+                                    <input name="subject" placeholder="Subject*" type="text" />
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <textarea name="imformation" placeholder="Your Message*"></textarea>
+                                    <button class="btn btn-primary" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="contact-info">
+                        <div class="single-contact">
+                            <div class="icon-box">
+                                <img src="assets/images/icons/contact-1.png" alt="">
+                            </div>
+                            <div class="info-box">
+                                <h5 class="title">Address</h5>
+                                <p>ASIA/INDIA/MP/INORE/BADGNANGA <br>
+                                123 Your Location</p>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="icon-box">
+                                <img src="assets/images/icons/contact-2.png" alt="">
+                            </div>
+                            <div class="info-box">
+                                <h5 class="title">Phone No</h5>
+                                <p><a href="tel:0123456789">+919098264378</a></p>
+                                <p><a href="tel:0123456789">+09098268645</a></p>
+                            </div>
+                        </div>
+                        <div class="single-contact m-0">
+                            
+                            <div class="info-box">
+                                <h5 class="title">Email/Web</h5>
+                                <p><a href="contact">komaldhote9165@gmail.com</a></p>
+                                <p><a href="index">www.komalkmart.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Area End -->
+<!-- map Area Start -->
+<div class="contact-map">
+    <div id="mapid">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.4010212478147!2d75.83268156427712!3d22.750494282152314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39630273f75e6ea7%3A0x9bce411f92954315!2sJagdish%20Nagar%2C%20Indore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1651060897966!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a href="https://sites.google.com/view/maps-api-v2/mapv2"></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

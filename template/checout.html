@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+{% load cart_tag %}
+<div class="blog-text">
+    <div class="blog-athor-date line-height-1">
+        <span class="blog-date"><i class="fa fa-calendar" aria-hidden="true"></i> 27,Jun 2030</span>
+        <span><a class="blog-author" href="blog-grid.html"><i class="fa fa-user" aria-hidden="true"></i> Oaklee Odom</a></span>
+    </div>
+    <h5 class="blog-heading"><a class="blog-heading-link" href="blog-single-left-sidebar.html">5 Real-Life Lessons About Smart Product</a></h5>
+    <p>Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
+    <a href="blog-single-left-sidebar.html" class="btn btn-primary blog-btn"> Read More</a>
+</div>
+</div>
+</div>
+<!-- End single blog -->
+</div>
+</div>
+</div>
+
+<h1>{{eroor}}</h1>
+<div class="checkout-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+               <form action="{% url 'ordertaking' %}" method="post">        
+                {% csrf_token %}         
+                <div class="billing-info-wrap">
+                    <h3>Billing Details</h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label>First Name</label>
+                                <input type="text" name="firstname" />
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label>Last Name</label>
+                                <input type="text" name="lastnam" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="billing-info mb-4">
+                                <label>Country</label>
+                                <input type="text" name="country" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <div class="billing-info mb-4">
+                                <label>Street Address</label>
+                                <input class="billing-address" placeholder="House number and street name" type="text"  name="housnum"/>
+                                <input placeholder="Apartment, suite, unit etc." type="text"  name="city" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="billing-info mb-4">
+                                <label>Town / City</label>
+                                <select name="state" id="state" class="form-control">
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                    <option value="Daman and Diu">Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label>State / County</label>
+                                <input type="text"   name="firstname"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label>Postcode / ZIP</label>
+                                <input type="number"  name="zipcode" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label>Phone</label>
+                                <input type="number" name="phone" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label>Email Address</label>
+                                <input readonly type="text" value="{{user.email}}" name="email" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="additional-info-wrap">
+                        <h4>Additional information</h4>
+                        <div class="additional-info">
+                            <label>Order notes</label>
+                            <input type="text"  name="additninal" />
+                        </div>
+                       
+                    </div>
+            
+                        
+                    <button style="border: 2px solid rgb(48, 13, 13);color:rgba(89, 0, 255, 0.555); background-color:rgb(231, 176, 178)" type="submit">Place Order</button>
+               
+                    
+
+            </form>   
+            </div>
+            <br>
+            <br><br><br>
+            <div class="col-lg-5 mt-md-30px mt-lm-30px ">
+                <div class="your-order-area">
+                    <h3>Your order</h3>
+                    <div class="your-order-wrap gray-bg-4">
+                        <div class="your-order-product-info">
+                            <div class="your-order-top">
+                                <ul>
+                                    <li>Product</li>
+                                    <li>Total</li>
+                                </ul>
+                            </div>
+                            <div class="your-order-middle">
+                                <ul>
+
+                                    {% for key,value in request.session.cart.items %}
+                                    <li><span class="order-middle-left">{{value.name|slice:":10"}}</span> <span
+                                        class="order-price">₹{{ value.price|multiply:value.quantity }} </span></li>
+                                    {% endfor %}
+                                    
+                                </ul>
+                            </div>
+                            <div class="your-order-bottom">
+                                <ul>
+                                    <li class="your-order-shipping">Shipping</li>
+                                    <li>40rs</li>
+                                </ul>
+                            </div>
+                            <div class="your-order-total">
+                                <ul>
+                                    <li class="order-total">Total</li>
+                                    <li>₹{{cart_total_amount|add:150|add:40}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="payment-method">
+                            <div class="payment-accordion element-mrg">
+                                <div id="faq" class="panel-group">
+                                    <div class="panel panel-default single-my-account m-0">
+                                        <div class="panel-heading my-account-title">
+                                            <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1" class="collapsed" aria-expanded="true">Direct bank transfer</a>
+                                            </h4>
+                                        </div>
+                                        <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
+                                            <div class="panel-body">
+                                                <p>Please send a check to Store Name, Store Street, Store Town,
+                                                    Store State / County, Store Postcode.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default single-my-account m-0">
+                                        <div class="panel-heading my-account-title">
+                                            <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-2" aria-expanded="false" class="collapsed">Check payments</a></h4>
+                                        </div>
+                                        <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
+                                            <div class="panel-body">
+                                                <p>Please send a check to Store Name, Store Street, Store Town,
+                                                    Store State / County, Store Postcode.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default single-my-account m-0">
+                                        <div class="panel-heading my-account-title">
+                                            <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-3">Cash on delivery</a></h4>
+                                        </div>
+                                        <div id="my-account-3" class="panel-collapse collapse" data-bs-parent="#faq">
+                                            <div class="panel-body">
+                                                <p>Please send a check to Store Name, Store Street, Store Town,
+                                                    Store State / County, Store Postcode.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+<div class="blog-text">
+    <div class="blog-athor-date line-height-1">
+        <span class="blog-date"><i class="fa fa-calendar" aria-hidden="true"></i> 27,Jun 2030</span>
+        <span><a class="blog-author" href="blog-grid.html"><i class="fa fa-user" aria-hidden="true"></i> Oaklee Odom</a></span>
+    </div>
+    <h5 class="blog-heading"><a class="blog-heading-link" href="blog-single-left-sidebar.html">5 Real-Life Lessons About Smart Product</a></h5>
+    <p>Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
+    <a href="blog-single-left-sidebar.html" class="btn btn-primary blog-btn"> Read More</a>
+</div>
+</div>
+</div>
+<!-- End single blog -->
+</div>
+</div>
+</div>
+<div class="team-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h2 class="title line-height-1">Team Member</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-n-30px">
+            {% for t in team %}
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-lm-30px mb-lg-30px mb-md-30px">
+                <!-- Single Team -->
+                <div class="team-wrapper ">
+                    <div class="team-image overflow-hidden">
+                        <img style="height:450PX;" src="{{t.teammemberimg.url}}" alt="">
+                        
+                    </div>
+                    <div class="team-inner">
+                        <div class="team-content">
+                            <h6 style="color: brown;" class="title">{{t.skill}}</h6>
+                            <h6 class="title">{{t.name}}</h6>
+                            
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team -->
+            </div>
+          {% endfor %}
+
+           
+            
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

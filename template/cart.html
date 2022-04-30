@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+{% load cart_tag %}
+{% load cart %}
+{% if request.session.cart|length < 1 %}
+<div class="blog-text">
+    <div class="blog-athor-date line-height-1">
+        <span class="blog-date"><i class="fa fa-calendar" aria-hidden="true"></i> 27,Jun 2030</span>
+        <span><a class="blog-author" href="blog-grid.html"><i class="fa fa-user" aria-hidden="true"></i> Oaklee Odom</a></span>
+    </div>
+    <h5 class="blog-heading"><a class="blog-heading-link" href="blog-single-left-sidebar.html">5 Real-Life Lessons About Smart Product</a></h5>
+    <p>Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
+    <a href="blog-single-left-sidebar.html" class="btn btn-primary blog-btn"> Read More</a>
+</div>
+</div>
+</div>
+<!-- End single blog -->
+</div>
+</div>
+</div>
+<!-- breadcrumb-area end -->
+<!-- Shop Page Start  -->
+<div class="empty-cart-area pb-100px pt-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-heading">
+                    <h2>Your cart item</h2>
+                </div>
+                <div class="empty-text-contant text-center">
+                    <i class="pe-7s-shopbag"></i>
+                    <h3>There are no more items in your cart</h3>
+                    <a class="empty-cart-btn" href="products">
+                        <i class="fa fa-arrow-left"> </i> Continue shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% else %}
+<div class="blog-text">
+    <div class="blog-athor-date line-height-1">
+        <span class="blog-date"><i class="fa fa-calendar" aria-hidden="true"></i> 27,Jun 2030</span>
+        <span><a class="blog-author" href="blog-grid.html"><i class="fa fa-user" aria-hidden="true"></i> Oaklee Odom</a></span>
+    </div>
+    <h5 class="blog-heading"><a class="blog-heading-link" href="blog-single-left-sidebar.html">5 Real-Life Lessons About Smart Product</a></h5>
+    <p>Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
+    <a href="blog-single-left-sidebar.html" class="btn btn-primary blog-btn"> Read More</a>
+</div>
+</div>
+</div>
+<!-- End single blog -->
+</div>
+</div>
+</div>
+
+
+
+
+<div class="cart-main-area pt-100px pb-100px">
+    <div class="container">
+        <h3 class="cart-page-title">Your cart items</h3>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <form action="#">
+                    <div class="table-content table-responsive cart-table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Until Price</th>
+                                    <th>Qty</th>
+                                    <th>Subtotal</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for key,value in request.session.cart.items %}
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <a href="#"><img class="img-responsive ml-15px" src=" {{value.image}} " alt="" /></a>
+                                    </td>
+                                    <td class="product-name"><a href="#">{{value.name}} </a></td>
+                                    <td class="product-price-cart"><span class="amount"> {{value.price}} </span></td>
+                                    <td class="product-quantity">
+                                        <div class="cart-plus-minus-box">
+                                            <a href="{% url 'item_decrement' value.product_id %}"><i class="fa fa-minus"></i></a>
+                                            {{value.quantity}}
+                                            <a href="{% url 'item_increment' value.product_id %}"><i class="fa fa-plus"></i></a>
+                                           
+                                            
+                                           
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal">₹ {{ value.price|multiply:value.quantity }}</td>
+                                    <td class="product-remove">
+                                        <a href="{% url 'item_clear' value.product_id %}"><i class="fa fa-times"></i></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="cart-shiping-update-wrapper">
+                                
+                                <div class="cart-clear">
+                                    <a href="products">Update Shopping Cart</a>
+                                    
+                                    <a href="{% url 'cart_clear' %}">Clear Shopping Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-lm-30px">
+                       
+
+
+
+
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-lm-30px">
+                       
+
+                    </div>
+                    <div class="col-lg-4 col-md-12 mt-md-30px">
+                        <div class="grand-totall">
+                            <div class="title-wrap">
+                                <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
+                            </div>
+                            <h5>Total products <span>₹{{cart_total_amount}}</span></h5>
+                            <div class="total-shipping">
+                                <h5>Total shipping</h5>
+                                <ul>
+                                    <li><input type="PRODUCT-TAX" /> Standard <span>₹150.00</span></li>
+                                    <li><input type="SHIPING CHARGE" /> Express <span>₹40.00</span></li>
+                                </ul>
+                            </div>
+                            <h4 class="grand-totall-title">Grand Total <span>₹{{cart_total_amount|add:150|add:40}}</span></h4>
+                            <a href="checout">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+{% endblock %}
